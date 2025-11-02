@@ -10,7 +10,8 @@ function App() {
          {count}
           <button onClick={() => setCount(count + 1)} > click me  </button>
 
-          <Display/>
+          <Display/> 
+          {/* component </> */}
      </div>
     </div>
   );
@@ -19,3 +20,23 @@ function App() {
 
 
 export default App;
+
+
+
+
+{/*
+  <html>
+    <head>
+        <title>counter</title>
+    </head>
+    <body>
+    <button id="btn" onClick="update()"> count is 0 </button>
+    <script>
+        let count = 0;
+        function update(){
+        document.getElementById("count").innerText = `count is ${count}`;
+            count = count + 1;
+        }
+    </script>
+    </body>
+  */}
