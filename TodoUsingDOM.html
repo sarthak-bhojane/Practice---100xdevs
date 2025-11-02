@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO</title>
+</head>
+<body>
+
+    <!-- html -->
+    <input type="text" id="title" placeholder="enter text"/>
+    <input type="text" id="des" placeholder="enter text"/>
+    <button id="button" onclick="getvalue()">done</button>
+
+    <br>
+    <div id="todos"></div>
+
+
+
+    <!-- javascript -->
+     <script>
+       
+        let global = 1;
+        function getvalue(){
+            const valueoffistbox = document.getElementById("title").value;
+             const valueofsecbox = document.getElementById("des").value;
+           
+             const parent = document.getElementById("todos");
+             
+             parent.appendChild(createchild(valueoffistbox, valueofsecbox, global++));
+
+             
+            //  const textBoss = document.createElement("strong");
+            //   textBoss.textContent = "hello boss"
+            //  parent.appendChild(textBoss)
+            //  console.log(parent);
+        }
+
+        
+        function createchild(title, des, id){
+            const child = document.createElement("div");
+
+            // child.innerHTML = title;    
+            const firstGrandParent = document.createElement("div");
+            firstGrandParent.innerHTML = title;  
+            const SecondGrandParent = document.createElement("div");
+            SecondGrandParent.innerHTML = des;  
+            const thirdGrandParent = document.createElement("button");
+            thirdGrandParent.innerHTML = "mark as done";
+            thirdGrandParent.setAttribute("onclick", `markdone(${id})`);
+           
+
+            child.appendChild(firstGrandParent);
+            child.appendChild(SecondGrandParent);
+            child.appendChild(thirdGrandParent);
+
+            child.setAttribute("id", id);
+            return child;
+        }
+
+        function markdone(todoID){
+            const parent = document.getElementById(todoID);
+            parent.children[2].innerHTML = "Done!";
+        }
+    </script>
+</body>
+</html>
